@@ -2,83 +2,96 @@
 
 /* Global styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  /* Header styles */
-  header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  /* Main content styles */
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
-  
-  /* Button styles */
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #00b330;
-  }
-  
-  /* Card styles */
-  .card {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Form styles */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Footer styles */
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-top: 100px; /* Adjust as needed for parallax effect */
+  /* background-image: url(''); Add your background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+}
+
+/* Parallax effect */
+.header:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+}
+
+/* Card styles */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Button styles */
+.button {
+  background-color: #4a90e2;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #357bd8;
+  transform: translateY(-3px); /* Add a slight upward movement on hover */
+}
+
+/* Family member list styles */
+.family-list {
+  margin-top: 20px;
+}
+
+.family-list h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.member-item {
+  margin-top: 10px;
+}
+
+.member-item span {
+  font-weight: bold;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #999;
+}
+

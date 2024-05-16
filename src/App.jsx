@@ -1,8 +1,24 @@
-import { useState } from "react";
+// App.js
+
+import { useState, useEffect } from "react";
 import "./index.css";
 
 function App() {
   const [familyTree, setFamilyTree] = useState([]);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const headerHeight = 100; // Adjust the height of the header as needed
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Function to add a new family member
   function addFamilyMember(name, relation) {
@@ -39,8 +55,11 @@ function App() {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <header className="text-center mb-8">
+    <div className="container mx-auto py-8 px-4" style={{ paddingTop: `${headerHeight}px` }}>
+      <header
+        className="header text-center mb-8 fixed top-0 left-0 right-0 bg-white z-10"
+        style={{ transform: `translateY(${scrollPosition * 0.5}px)` }}
+      >
         <h1 className="text-4xl font-bold">FamilyTree 🌴</h1>
       </header>
       <div className="flex justify-center">
@@ -48,13 +67,13 @@ function App() {
           {displayFamilyTree()}
           <div className="mt-4">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 transition-transform duration-300 transform hover:scale-105"
               onClick={() => addFamilyMember("John", "Father")}
             >
               Add Family Member
             </button>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-transform duration-300 transform hover:scale-105"
               onClick={() => editFamilyMember(0, "John Doe", "Father")}
             >
               Edit Family Member
