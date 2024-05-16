@@ -31,9 +31,33 @@ function App() {
         <h2 className="text-xl font-bold mb-2">Family Tree:</h2>
         <ul className="list-disc ml-4">
           {familyTree.map((member, index) => (
-            <li key={index} className="mt-1">
-              <span className="font-semibold">Name:</span> {member.name},{" "}
-              <span className="font-semibold">Relation:</span> {member.relation}
+            <li key={index} className="mt-4">
+              <div>
+                <span className="font-semibold">Name:</span> {member.name}
+              </div>
+              <div>
+                <span className="font-semibold">Relation:</span> {member.relation}
+              </div>
+              <div className="flex mt-2">
+                <input
+                  type="text"
+                  value={member.name}
+                  onChange={(e) => handleNameChange(e, index)}
+                  className="border rounded mr-2 px-2 py-1"
+                />
+                <input
+                  type="text"
+                  value={member.relation}
+                  onChange={(e) => handleRelationChange(e, index)}
+                  className="border rounded mr-2 px-2 py-1"
+                />
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded transition-transform duration-300 transform hover:scale-105"
+                  onClick={() => removeFamilyMember(index)}
+                >
+                  Remove
+                </button>
+              </div>
             </li>
           ))}
         </ul>
@@ -41,15 +65,25 @@ function App() {
     );
   }
 
-  // Function to edit family member information
-  function editFamilyMember(index, newName, newRelation) {
-    if (index >= 0 && index < familyTree.length) {
-      const updatedFamilyTree = [...familyTree];
-      updatedFamilyTree[index] = { name: newName, relation: newRelation };
-      setFamilyTree(updatedFamilyTree);
-    } else {
-      console.log("Invalid index.");
-    }
+  // Function to handle name change
+  function handleNameChange(e, index) {
+    const updatedFamilyTree = [...familyTree];
+    updatedFamilyTree[index].name = e.target.value;
+    setFamilyTree(updatedFamilyTree);
+  }
+
+  // Function to handle relation change
+  function handleRelationChange(e, index) {
+    const updatedFamilyTree = [...familyTree];
+    updatedFamilyTree[index].relation = e.target.value;
+    setFamilyTree(updatedFamilyTree);
+  }
+
+  // Function to remove family member
+  function removeFamilyMember(index) {
+    const updatedFamilyTree = [...familyTree];
+    updatedFamilyTree.splice(index, 1);
+    setFamilyTree(updatedFamilyTree);
   }
 
   return (
@@ -69,12 +103,6 @@ function App() {
               onClick={() => addFamilyMember("John", "Father")}
             >
               Add Family Member
-            </button>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-transform duration-300 transform hover:scale-105"
-              onClick={() => editFamilyMember(0, "John Doe", "Father")}
-            >
-              Edit Family Member
             </button>
           </div>
         </div>
