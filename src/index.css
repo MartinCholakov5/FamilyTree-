@@ -5,6 +5,7 @@ body {
   font-family: 'Arial', sans-serif;
   background: url('path/to/your/image.jpg') no-repeat center center fixed; /* Set the background image */
   background-size: cover; /* Ensure the background covers the entire viewport */
+  background-color: purple;
   color: #333;
   margin: 0;
   padding: 0;
