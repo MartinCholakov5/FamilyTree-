@@ -8,10 +8,13 @@ const MemberContainer = styled.div`
   align-items: center;
   margin: 10px;
   padding: 20px;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
+  // border: 1px solid #dee2e6;
+  border-radius: 32px;
   background-color: purple transparent;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  
+
 `;
 
 const MemberName = styled.h3`
