@@ -1,22 +1,29 @@
 // src/components/FamilyTree.jsx
 import React from 'react';
-import styled from 'styled-components';
-import FamilyMember from './FamilyMember.jsx';
+import Tree from 'react-d3-tree';
 
-const TreeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-`;
+const containerStyles = {
+  width: '100%',
+  height: '100vh',
+};
 
-const FamilyTree = ({ family, onEdit }) => {
+const FamilyTree = ({ family }) => {
+  const data = family.map(member => ({
+    name: member.name,
+    attributes: {
+      details: member.details
+    }
+  }));
+
+  const treeData = {
+    name: 'Family Tree',
+    children: data,
+  };
+
   return (
-    <TreeContainer>
-      {family.map(member => (
-        <FamilyMember key={member.id} member={member} onEdit={onEdit} />
-      ))}
-    </TreeContainer>
+    <div style={containerStyles}>
+      <Tree data={treeData} orientation="horizontal" />
+    </div>
   );
 };
 
