@@ -22,7 +22,7 @@ const FamilyTree = ({ family }) => {
 
   return (
     <div style={containerStyles}>
-      <Tree data={treeData} orientation="horizontal" />
+      <Tree data={treeData} orientation="vertical" />
     </div>
   );
 };

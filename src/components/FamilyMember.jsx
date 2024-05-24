@@ -12,7 +12,7 @@ const MemberContainer = styled(motion.div)`
   padding: 20px;
   border: 1px solid #dee2e6;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: green;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
 `;
@@ -35,7 +35,7 @@ const MemberName = styled.h3`
 `;
 
 const MemberDetails = styled.p`
-  margin: 5px 0;
+  margin: 8px 0;
 `;
 
 const FamilyMember = ({ member, onEdit }) => {
